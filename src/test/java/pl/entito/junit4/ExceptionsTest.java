@@ -20,7 +20,7 @@ public class ExceptionsTest {
 	@Test
 	public void testExceptionMessageWithRule() {
 		thrown.expect(IndexOutOfBoundsException.class);
-		thrown.expectMessage(equalTo("Index: 0, Size: 0"));
+		thrown.expectMessage(equalTo("Index 0 out-of-bounds for length 0"));
 		new ArrayList<Integer>().get(0);
 	}
 
@@ -35,8 +35,8 @@ public class ExceptionsTest {
 			new ArrayList<Integer>().get(0);
 			fail("should not be here");
 		} catch (IndexOutOfBoundsException e) {
-			assertThat(e.getMessage(), equalTo("Index: 0, Size: 0"));
-			assertThat(e.getMessage(), containsString("Index: 0"));
+			assertThat(e.getMessage(), equalTo("Index 0 out-of-bounds for length 0"));
+			assertThat(e.getMessage(), containsString("Index 0"));
 		}
 	}
 
